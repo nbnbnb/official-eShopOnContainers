@@ -285,3 +285,7 @@ services:
     ports:
       - "5114:80"
 
+networks:
+  default:
+    external:
+      name: dev-net
