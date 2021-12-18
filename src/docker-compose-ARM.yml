@@ -48,7 +48,7 @@ services:
       dockerfile: Services/Webhooks/Webhooks.API/Dockerfile
 
   mobileshoppingapigw:
-    image: envoyproxy/envoy:v1.19.1
+    image: envoyproxy/envoy:v1.16.4
 
   mobileshoppingagg:
     image: ${REGISTRY:-eshop}/mobileshoppingagg:${PLATFORM:-linux}-${TAG:-latest}
