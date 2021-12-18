@@ -2,15 +2,11 @@ version: '3.4'
 
 services:
 
-  seq:
-    image: datalust/seq:latest
-
   identity-api:
     image: ${REGISTRY:-eshop}/identity.api:${PLATFORM:-linux}-${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Identity/Identity.API/Dockerfile
-
 
   basket-api:
     image: ${REGISTRY:-eshop}/basket.api:${PLATFORM:-linux}-${TAG:-latest}
@@ -52,7 +48,7 @@ services:
       dockerfile: Services/Webhooks/Webhooks.API/Dockerfile
 
   mobileshoppingapigw:
-    image: envoyproxy/envoy:v1.11.1
+    image: envoyproxy/envoy:v1.20.1
 
   mobileshoppingagg:
     image: ${REGISTRY:-eshop}/mobileshoppingagg:${PLATFORM:-linux}-${TAG:-latest}
