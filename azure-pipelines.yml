@@ -3,13 +3,15 @@ schedules:
 - cron: 0 4 * * *
   branches:
     include:
-    - master
+    - dev
   always: true
+
 resources:
   repositories:
   - repository: self
     type: git
-    ref: master
+    ref: dev
+
 jobs:
 
 - job: Job_1
