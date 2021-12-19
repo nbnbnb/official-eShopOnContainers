@@ -53,7 +53,7 @@ jobs:
     displayName: Build & Push Image
     inputs:
       targetType: inline
-      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-identity-api --push -f ./Services/Basket/Basket.API/Dockerfile .
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-identity-api --push -f ./Services/Identity/Identity.API/Dockerfile .
       workingDirectory: src
   - task: Docker@2
     displayName: logout
