@@ -11,6 +11,7 @@ resources:
     type: git
     ref: master
 jobs:
+
 - job: Job_1
   displayName: eshop-identity-api
   timeoutInMinutes: 120
@@ -65,7 +66,854 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        #echo `curl --location --request GET 'https://seoul-arm.zhangjin.tk:31515/hook?access_key=4RyWV1DQl0TlogKb2HNei2njgcEQBl3WhjR2A6gTfVnEcJrJ&param=auth-server,abp-authserver-host'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=identity-api'`
 
         echo '---End---'
+
+
+- job: Job_2
+  displayName: eshop-basket-api
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-basket-api --push -f ./Services/Basket/Basket.API/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=basket-api'`
+
+        echo '---End---'
+
+
+- job: Job_3
+  displayName: eshop-catalog-api
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-catalog-api --push -f ./Services/Catalog/Catalog.API/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=catalog-api'`
+
+        echo '---End---'
+
+
+- job: Job_4
+  displayName: eshop-ordering-api
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-ordering-api --push -f ./Services/Ordering/Ordering.API/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=ordering-api'`
+
+        echo '---End---'
+
+
+- job: Job_5
+  displayName: eshop-ordering-backgroundtasks
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-ordering-backgroundtasks --push -f ./Services/Ordering/Ordering.BackgroundTasks/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=ordering-backgroundtasks'`
+
+        echo '---End---'
+
+
+- job: Job_6
+  displayName: eshop-payment-api
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-payment-api --push -f ./Services/Payment/Payment.API/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=payment-api'`
+
+        echo '---End---'
+
+
+- job: Job_7
+  displayName: eshop-webhooks-api
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webhooks-api --push -f ./Services/Webhooks/Webhooks.API/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=webhooks-api'`
+
+        echo '---End---'
+
+
+- job: Job_8
+  displayName: eshop-mobileshoppingagg
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-mobileshoppingagg --push -f ./ApiGateways/Mobile.Bff.Shopping/aggregator/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=mobileshoppingagg'`
+
+        echo '---End---'
+
+
+- job: Job_9
+  displayName: eshop-webshoppingagg
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webshoppingagg --push -f ./ApiGateways/Web.Bff.Shopping/aggregator/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=webshoppingagg'`
+
+        echo '---End---'
+
+
+- job: Job_10
+  displayName: eshop-ordering-signalrhub
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-ordering-signalrhub --push -f ./Services/Ordering/Ordering.SignalrHub/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=ordering-signalrhub'`
+
+        echo '---End---'
+
+
+- job: Job_11
+  displayName: eshop-webstatus
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webstatus --push -f ./Web/WebStatus/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=webstatus'`
+
+        echo '---End---'
+
+
+- job: Job_12
+  displayName: eshop-webspa
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webspa --push -f ./Web/WebSPA/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=webspa'`
+
+        echo '---End---'
+
+
+- job: Job_13
+  displayName: eshop-webmvc
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webmvc --push -f ./Web/WebMVC/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=webmvc'`
+
+        echo '---End---'
+
+
+- job: Job_14
+  displayName: eshop-webhooks-client
+  timeoutInMinutes: 120
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: UseDotNet@2
+    displayName: Use .NET Core sdk 6.x
+    inputs:
+      version: 6.x
+  - task: DockerInstaller@0
+    displayName: Install Docker 20.10.9
+    inputs:
+      dockerVersion: 20.10.9
+  - task: Docker@2
+    displayName: login
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: login
+  - task: Bash@3
+    displayName: Install Buildx
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo 'Install Buildx'
+
+        docker buildx create --name multi-platform-builder --driver docker-container
+
+        docker buildx use multi-platform-builder
+
+        docker run --privileged --rm tonistiigi/binfmt --install all
+
+  - task: Bash@3
+    displayName: Build & Push Image
+    inputs:
+      targetType: inline
+      script: docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webhooks-client --push -f ./Web/WebhookClient/Dockerfile .
+      workingDirectory: src
+  - task: Docker@2
+    displayName: logout
+    inputs:
+      containerRegistry: 3ec4decc-f585-4b57-ad20-058527a0fd18
+      command: logout
+  - task: Bash@3
+    displayName: Notify
+    inputs:
+      targetType: inline
+      script: >-
+        # Write your commands here
+        echo '--Start--'
+
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=v7jjaAdcYtoemjszFMKS2oOXKoUGFaBaynoBGqxrsUIGSVbh&param=webhooks-client'`
+
+        echo '---End---'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
