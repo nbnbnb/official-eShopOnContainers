@@ -68,7 +68,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=identity-api'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=identity-api'`
 
         echo '---End---'
 
@@ -127,7 +127,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=basket-api'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=basket-api'`
 
         echo '---End---'
 
@@ -186,7 +186,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=catalog-api'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=catalog-api'`
 
         echo '---End---'
 
@@ -245,7 +245,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=ordering-api'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=ordering-api'`
 
         echo '---End---'
 
@@ -304,7 +304,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=ordering-backgroundtasks'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=ordering-backgroundtasks'`
 
         echo '---End---'
 
@@ -363,7 +363,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=payment-api'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=payment-api'`
 
         echo '---End---'
 
@@ -422,7 +422,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=webhooks-api'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=webhooks-api'`
 
         echo '---End---'
 
@@ -481,7 +481,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=mobileshoppingagg'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=mobileshoppingagg'`
 
         echo '---End---'
 
@@ -540,7 +540,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=webshoppingagg'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=webshoppingagg'`
 
         echo '---End---'
 
@@ -599,7 +599,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=ordering-signalrhub'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=ordering-signalrhub'`
 
         echo '---End---'
 
@@ -658,7 +658,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=webstatus'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=webstatus'`
 
         echo '---End---'
 
@@ -717,7 +717,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=webspa'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=webspa'`
 
         echo '---End---'
 
@@ -776,7 +776,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=webmvc'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=webmvc'`
 
         echo '---End---'
 
@@ -835,7 +835,7 @@ jobs:
         # Write your commands here
         echo '--Start--'
 
-        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=KB2YlBC1Q1lqOCq3NrZsQXV2pwOgRctV9YXVMOYzyBVhUnVC&param=webhooks-client'`
+        echo `curl --location --request GET 'https://sydney-arm.zhangjin.tk:31515/hook?access_key=SiGAADvhxFTGI1Lyu4xIS5scVbiiaOZ6imrjuqspPfLa9DkD&param=webhooks-client'`
 
         echo '---End---'
 
