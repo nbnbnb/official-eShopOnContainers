@@ -14,7 +14,7 @@ RUN npm install
 COPY Web/WebSPA/Client .
 RUN npm run build:prod
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim-amd64 AS build
 WORKDIR /src
 
 # Create this "restore-solution" section by running ./Create-DockerfileSolutionRestore.ps1, to optimize build cache reuse
