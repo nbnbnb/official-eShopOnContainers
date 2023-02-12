@@ -20,7 +20,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)  
     {
         RegisterAppInsights(services);
-
+           
         services.AddHealthChecks()
             .AddCheck("self", () => HealthCheckResult.Healthy())
             .AddUrlGroup(new Uri(Configuration["IdentityUrlHC"]), name: "identityapi-check", tags: new string[] { "identityapi" });
