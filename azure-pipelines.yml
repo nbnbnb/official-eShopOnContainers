@@ -3,14 +3,14 @@ schedules:
 - cron: 0 4 * * *
   branches:
     include:
-    - dev
+    - release-6.0.0
   always: true
 
 resources:
   repositories:
   - repository: self
     type: git
-    ref: dev
+    ref: release-6.0.0
 
 jobs:
 
