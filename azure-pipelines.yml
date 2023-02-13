@@ -23,13 +23,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -82,13 +82,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -141,13 +141,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -200,13 +200,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -259,13 +259,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -318,13 +318,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -377,13 +377,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -436,13 +436,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -495,13 +495,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -554,13 +554,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -613,13 +613,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -672,13 +672,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -731,13 +731,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
@@ -790,13 +790,13 @@ jobs:
   - checkout: self
     clean: true
   - task: UseDotNet@2
-    displayName: Use .NET Core sdk 7.x
+    displayName: Use .NET Core sdk 6.x
     inputs:
-      version: 7.x
+      version: 6.x
   - task: DockerInstaller@0
-    displayName: Install Docker 20.10.9
+    displayName: Install Docker 20.10.21
     inputs:
-      dockerVersion: 20.10.9
+      dockerVersion: 20.10.21
   - task: Docker@2
     displayName: login
     inputs:
