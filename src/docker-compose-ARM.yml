@@ -1,0 +1,120 @@
+version: '3.4'
+
+services:
+
+  identity-api:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-identity-api
+    build:
+      context: .
+      dockerfile: Services/Identity/Identity.API/Dockerfile
+
+  basket-api:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-basket-api
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.API/Dockerfile
+    depends_on:
+      - identity-api
+
+  catalog-api:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-catalog-api
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+
+  ordering-api:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-ordering-api
+    build:
+      context: .
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+
+  ordering-backgroundtasks:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-ordering-backgroundtasks
+    build:
+      context: .
+      dockerfile: Services/Ordering/Ordering.BackgroundTasks/Dockerfile
+
+  payment-api:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-payment-api
+    build:
+      context: .
+      dockerfile: Services/Payment/Payment.API/Dockerfile
+
+  webhooks-api:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webhooks-api
+    build:
+      context: .
+      dockerfile: Services/Webhooks/Webhooks.API/Dockerfile
+
+  mobileshoppingapigw:
+    image: envoyproxy/envoy:v1.16.4
+
+  mobileshoppingagg:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-mobileshoppingagg
+    build:
+      context: .
+      dockerfile: ApiGateways/Mobile.Bff.Shopping/aggregator/Dockerfile
+    depends_on:
+      - identity-api
+      - ordering-api
+      - catalog-api
+      - basket-api
+
+  webshoppingagg:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webshoppingagg
+    build:
+      context: .
+      dockerfile: ApiGateways/Web.Bff.Shopping/aggregator/Dockerfile
+    depends_on:
+      - identity-api
+      - ordering-api
+      - catalog-api
+      - basket-api
+
+  ordering-signalrhub:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-ordering-signalrhub
+    build:
+      context: .
+      dockerfile: Services/Ordering/Ordering.SignalrHub/Dockerfile
+    depends_on:
+      - identity-api
+      - ordering-api
+      - catalog-api
+      - basket-api
+
+  webstatus:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webstatus
+    build:
+      context: .
+      dockerfile: Web/WebStatus/Dockerfile
+
+  webspa:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webspa
+    build:
+      context: .
+      dockerfile: Web/WebSPA/Dockerfile
+      args:
+        NODE_IMAGE: ${NODE_IMAGE:-node:12.0}
+    depends_on:
+      - webshoppingagg
+      - webshoppingapigw
+
+  webmvc:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webmvc
+    build:
+      context: .
+      dockerfile: Web/WebMVC/Dockerfile
+    depends_on:
+      - webshoppingagg
+      - webshoppingapigw
+
+  webhooks-client:
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:webhooks-client
+    build:
+      context: .
+      dockerfile: Web/WebhookClient/Dockerfile
+    depends_on:
+      - webhooks-api
+
+  webshoppingapigw:
+    image: envoyproxy/envoy:v1.16.4
