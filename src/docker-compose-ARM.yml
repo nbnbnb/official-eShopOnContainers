@@ -9,7 +9,7 @@ services:
       dockerfile: Services/Identity/Identity.API/Dockerfile
 
   basket-api:
-    image: ${REGISTRY:-eshop}/basket.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:basket-api
     build:
       context: .
       dockerfile: Services/Basket/Basket.API/Dockerfile
