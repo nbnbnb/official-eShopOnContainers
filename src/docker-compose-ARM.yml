@@ -98,8 +98,7 @@ services:
     depends_on:
       - webshoppingagg
       - webshoppingapigw
-      - mobileshoppingapigw
-      - webhooks-client    
+      - mobileshoppingapigw  
 
   webmvc:
     image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webmvc
@@ -110,10 +109,9 @@ services:
       - webshoppingagg
       - webshoppingapigw
       - mobileshoppingapigw
-      - webhooks-client
 
   webhooks-client:
-    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:webhooks-client
+    image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webhooks-client
     build:
       context: .
       dockerfile: Web/WebhookClient/Dockerfile
