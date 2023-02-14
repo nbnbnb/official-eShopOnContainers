@@ -99,6 +99,7 @@ services:
       - webshoppingagg
       - webshoppingapigw
       - mobileshoppingapigw
+      - webhooks-client    
 
   webmvc:
     image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webmvc
@@ -109,6 +110,7 @@ services:
       - webshoppingagg
       - webshoppingapigw
       - mobileshoppingapigw
+      - webhooks-client
 
   webhooks-client:
     image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:webhooks-client
