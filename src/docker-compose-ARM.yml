@@ -98,6 +98,7 @@ services:
     depends_on:
       - webshoppingagg
       - webshoppingapigw
+      - mobileshoppingapigw
 
   webmvc:
     image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:eshop-webmvc
@@ -107,6 +108,7 @@ services:
     depends_on:
       - webshoppingagg
       - webshoppingapigw
+      - mobileshoppingapigw
 
   webhooks-client:
     image: registry.cn-hangzhou.aliyuncs.com/zhangjj/demo:webhooks-client
