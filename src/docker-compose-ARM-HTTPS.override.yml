@@ -15,7 +15,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - SpaClient=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5104
       - XamarinCallback=http://${ESHOP_PROD_EXTERNAL_DNS_NAME_OR_IP}:5105/xamarincallback
       - ConnectionString=${ESHOP_AZURE_IDENTITY_DB:-Server=sqldata;Database=Microsoft.eShopOnContainers.Service.IdentityDb;User Id=sa;Password=Pass@word}
@@ -39,7 +39,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - ConnectionString=${ESHOP_AZURE_REDIS_BASKET_DB:-basketdata}
       - identityUrl=http://identity-api
       - IdentityUrlExternal=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
@@ -90,7 +90,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - ConnectionString=${ESHOP_AZURE_ORDERING_DB:-Server=sqldata;Database=Microsoft.eShopOnContainers.Services.OrderingDb;User Id=sa;Password=Pass@word}
       - identityUrl=http://identity-api
       - IdentityUrlExternal=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
@@ -119,7 +119,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - ConnectionString=${ESHOP_AZURE_ORDERING_DB:-Server=sqldata;Database=Microsoft.eShopOnContainers.Services.OrderingDb;User Id=sa;Password=Pass@word}
       - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
       - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
@@ -142,7 +142,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
       - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
       - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}
@@ -161,7 +161,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - ConnectionString=${ESHOP_AZURE_WEBHOOKS_DB:-Server=sqldata;Database=Microsoft.eShopOnContainers.Services.WebhooksDb;User Id=sa;Password=Pass@word}
       - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
       - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
@@ -246,7 +246,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
       - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
       - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}
@@ -264,7 +264,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - HealthChecksUI__HealthChecks__0__Name=WebMVC HTTP Check
       - HealthChecksUI__HealthChecks__0__Uri=http://webmvc/hc
       - HealthChecksUI__HealthChecks__1__Name=WebSPA HTTP Check
@@ -299,7 +299,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - IdentityUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
       - PurchaseUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5202
       - IdentityUrlHC=http://identity-api/hc
@@ -317,7 +317,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - PurchaseUrl=http://webshoppingapigw
       - IdentityUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
       - SignalrHubUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5202
@@ -335,7 +335,7 @@ services:
     environment:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
-      - ASPNETCORE_URLS=https://0.0.0.0:443,http://0.0.0.0:80
+      - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - Token=6168DB8D-DC58-4094-AF24-483278923590      # Webhooks are registered with this token (any value is valid) but the client won't check it
       - IdentityUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
       - CallBackUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5114
