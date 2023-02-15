@@ -53,6 +53,13 @@ FROM build AS publish
 
 FROM base AS final
 WORKDIR /app
+
+# Change timezone to local time
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+# HTTPS
+RUN mkdir https
+
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "WebStatus.dll"]
 

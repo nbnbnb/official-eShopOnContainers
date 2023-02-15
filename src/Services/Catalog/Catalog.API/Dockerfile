@@ -61,6 +61,13 @@ FROM build AS publish
 
 FROM base AS final
 WORKDIR /app
+
+# Change timezone to local time
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+# HTTPS
+RUN mkdir https
+
 COPY --from=publish /app .
 COPY --from=build /src/Services/Catalog/Catalog.API/Proto /app/Proto
 COPY --from=build /src/Services/Catalog/Catalog.API/eshop.pfx .
