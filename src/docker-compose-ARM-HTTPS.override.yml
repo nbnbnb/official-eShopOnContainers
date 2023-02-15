@@ -173,25 +173,17 @@ services:
 
   mobileshoppingapigw:
     volumes:
-      - /home/ubuntu/ssl/zhangjin.tk:/app/https
       - ./ApiGateways/Envoy/config/mobileshopping:/etc/envoy
-    environment:
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
     ports:
-    - "5200:443"
-    - "15200:44301"
+    - "5200:80"
+    - "15200:8001"
 
   webshoppingapigw:
     volumes:
-      - /home/ubuntu/ssl/zhangjin.tk:/app/https
       - ./ApiGateways/Envoy/config/webshopping:/etc/envoy
-    environment:
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=${SSL_Password}
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=${SSL_File}
     ports:
-    - "5202:443"
-    - "15202:44301"
+    - "5202:80"
+    - "15202:8001"
 
   mobileshoppingagg:
     volumes:
