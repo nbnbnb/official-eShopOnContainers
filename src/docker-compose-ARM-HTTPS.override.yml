@@ -293,12 +293,12 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - IdentityUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
-      - PurchaseUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5202
+      - PurchaseUrl=https://eshop-webshoppingapigw-sydney-arm.zhangjin.tk
       - IdentityUrlHC=http://identity-api/hc
       - UseCustomizationData=True
       - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
       - OrchestratorType=${ORCHESTRATOR_TYPE}
-      - SignalrHubUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5202
+      - SignalrHubUrl=https://eshop-webshoppingapigw-sydney-arm.zhangjin.tk
     ports:
       - "5104:443"
 
@@ -312,7 +312,7 @@ services:
       - ASPNETCORE_URLS=https://0.0.0.0:443;http://0.0.0.0:80
       - PurchaseUrl=http://webshoppingapigw
       - IdentityUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
-      - SignalrHubUrl=https://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5202
+      - SignalrHubUrl=https://eshop-webshoppingapigw-sydney-arm.zhangjin.tk
       - IdentityUrlHC=http://identity-api/hc
       - UseCustomizationData=True
       - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
