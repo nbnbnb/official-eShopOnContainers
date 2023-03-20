@@ -679,6 +679,10 @@ jobs:
     displayName: Install Docker 20.10.21
     inputs:
       dockerVersion: 20.10.21
+  - task: NodeTool@0
+    displayName: 'Install Node.js 18.x'      
+    inputs:
+      versionSpec: '18.x'
   - task: Docker@2
     displayName: login
     inputs:
